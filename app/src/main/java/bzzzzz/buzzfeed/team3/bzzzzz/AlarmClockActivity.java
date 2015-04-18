@@ -1,5 +1,6 @@
 package bzzzzz.buzzfeed.team3.bzzzzz;
 
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.FragmentTransaction;
 import android.app.PendingIntent;
@@ -17,7 +18,7 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 
 
-public class AlarmClockActivity extends ActionBarActivity {
+public class AlarmClockActivity extends Activity {
     private static AlarmClockActivity inst;
     private AlarmClock alarm;
 
