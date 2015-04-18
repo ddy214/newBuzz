@@ -1,5 +1,6 @@
 package bzzzzz.buzzfeed.team3.bzzzzz;
 
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -20,7 +21,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 
-public class AlarmScreen extends ActionBarActivity {
+public class AlarmScreen extends Activity {
     Ringtone ringtone;
 
     @Override

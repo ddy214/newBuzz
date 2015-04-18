@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBar;
+import android.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -35,7 +35,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
     private static String url = "http://www.buzzfeed.com/buzzfeed/api/buzzes?ids=1234,234,4567&session_key=2ee4e2768c44aedd9481f2e70855fb6716323a5c8995da8a7386fd863aee54bfhackathon2";
     //private static String url = "http://www.buzzfeed.com/buzzfeed/api/buzz?url=http://www.buzzfeed.com/mbvd/iraqi-prime-minister-maliki-fights-to-hold-power&session_key=2ee4e2768c44aedd9481f2e70855fb6716323a5c8995da8a7386fd863aee54bfhackathon2";
@@ -54,7 +54,7 @@ public class MainActivity extends ActionBarActivity {
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         // Update the action bar title with the TypefaceSpan instance
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getActionBar();
         actionBar.setTitle(s);
 
         // call AsyncTask to perform network operation on separate thread
