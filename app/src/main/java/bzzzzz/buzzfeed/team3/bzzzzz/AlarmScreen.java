@@ -1,5 +1,6 @@
 package bzzzzz.buzzfeed.team3.bzzzzz;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -10,6 +11,8 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,12 +31,9 @@ public class AlarmScreen extends Activity {
     public void onStart(){
         super.onStart();
 
-
-
         if (getIntent() != null) {
             Log.d("activity", ""+getIntent().getBooleanExtra("key", false));
             if(getIntent().getBooleanExtra("key", false)) {
-
 
             }
         }
@@ -43,6 +43,15 @@ public class AlarmScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_screen);
+
+        //custom font
+        SpannableString s = new SpannableString(" BzZzZz");
+        s.setSpan(new TypefaceSpan(this, "ProximaNova-Semibold.otf"), 0, s.length(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        // Update the action bar title with the TypefaceSpan instance
+        ActionBar actionBar = getActionBar();
+        actionBar.setTitle(s);
+
         ImageButton buzzButton = (ImageButton) findViewById(R.id.buzzButton);
         TextView time = (TextView) findViewById(R.id.timeDisplay);
         DateFormat formatter = new SimpleDateFormat("hh:mm a");
@@ -70,6 +79,11 @@ public class AlarmScreen extends Activity {
         });
     }
 
+    @Override
+    protected void onStop() {
+        super.onPause();
+        finish();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

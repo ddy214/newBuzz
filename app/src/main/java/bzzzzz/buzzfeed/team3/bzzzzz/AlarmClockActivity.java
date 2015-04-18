@@ -1,5 +1,6 @@
 package bzzzzz.buzzfeed.team3.bzzzzz;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.FragmentTransaction;
@@ -8,12 +9,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -31,6 +35,15 @@ public class AlarmClockActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_clock);
+
+        //custom font
+        SpannableString s = new SpannableString(" BzZzZz");
+        s.setSpan(new TypefaceSpan(this, "ProximaNova-Semibold.otf"), 0, s.length(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        // Update the action bar title with the TypefaceSpan instance
+        ActionBar actionBar = getActionBar();
+        actionBar.setTitle(s);
+
         Button submit = (Button) findViewById(R.id.createtime);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +69,9 @@ public class AlarmClockActivity extends Activity {
             PendingIntent pending = PendingIntent.getBroadcast(AlarmClockActivity.this, 0, intent, 0);
             manager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pending);
             Log.d("Alarm", "has been set");
+
+            //Toast message
+            Toast.makeText(getBaseContext(), "ALARM SET", Toast.LENGTH_LONG).show();
         }
     }
 

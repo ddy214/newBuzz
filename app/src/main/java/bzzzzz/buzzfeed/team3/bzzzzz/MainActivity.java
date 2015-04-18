@@ -1,6 +1,4 @@
 package bzzzzz.buzzfeed.team3.bzzzzz;
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -52,7 +50,6 @@ public class MainActivity extends Activity {
         SpannableString s = new SpannableString(" BzZzZz");
         s.setSpan(new TypefaceSpan(this, "ProximaNova-Semibold.otf"), 0, s.length(),
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
         // Update the action bar title with the TypefaceSpan instance
         ActionBar actionBar = getActionBar();
         actionBar.setTitle(s);

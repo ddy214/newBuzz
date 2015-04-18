@@ -11,15 +11,21 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/time"
         />
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/createtime"
-        android:text = "Set Alarm"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/flat_selector"
+        android:textColor="@color/darkgray"
+        android:text = "Set Alarm"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
