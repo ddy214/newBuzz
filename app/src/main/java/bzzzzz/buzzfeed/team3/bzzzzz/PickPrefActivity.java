@@ -19,7 +19,7 @@ import java.util.List;
 
 public class PickPrefActivity extends Activity {
     public String pref;
-    static public ArrayList<CheckBox> listBox = new ArrayList<CheckBox>();
+    public ArrayList<CheckBox> listBox = new ArrayList<CheckBox>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

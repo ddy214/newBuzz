@@ -1,60 +1,72 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="bzzzzz.buzzfeed.team3.bzzzzz.PickPrefActivity">
 
-    <CheckBox
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/checkQuiz"/>
-    <TextView
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Quiz"
-        android:layout_gravity="center"
-        android:id="@+id/Quiz"/>
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/checkVideo"/>
 
-    <TextView
+    <TextView android:text="Pick Your Content"
+        android:id="@+id/tv_getup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Video"
-        android:id="@+id/Video"/>
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/darkred"
+        android:textSize="25dp"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="130dp"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        tools:context="bzzzzz.buzzfeed.team3.bzzzzz.PickPrefActivity">
 
     <CheckBox
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/checkList"/>
-    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="List"
-        android:id="@+id/List"/>
+        android:id="@+id/checkQuiz"
+        android:layout_marginTop="30dp"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:textColor="@color/lightgray"
+        android:text="Quiz"/>
+
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/checkArticle"/>
+        android:id="@+id/checkVideo"
+        android:layout_marginTop="20dp"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:textColor="@color/lightgray"
+        android:text="Video"/>
 
-    <TextView
+    <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Article"
-        android:id="@+id/Article"
-        android:layout_gravity="center"/>
+        android:id="@+id/checkList"
+        android:layout_marginTop="20dp"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:textColor="@color/lightgray"
+        android:text="List"/>
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkArticle"
+        android:layout_marginTop="20dp"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:textColor="@color/lightgray"
+        android:text="Article"/>
+
+    </LinearLayout>
     <!--&lt;!&ndash;<Button-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
