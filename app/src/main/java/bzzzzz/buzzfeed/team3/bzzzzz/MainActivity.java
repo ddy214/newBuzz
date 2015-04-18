@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.app.ActionBar;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Spannable;
@@ -111,6 +112,9 @@ public class MainActivity extends Activity {
             String user;
             String uri;
             String article_url;
+            String video_url;
+            String quiz_url;
+            String list_url;
 
             //convert json to result
             try {
@@ -122,12 +126,39 @@ public class MainActivity extends Activity {
                 uri = buzz.getString("uri");
 
                 //article_url = "http://www.buzzfeed.com/" + user + "/" + uri;
-                article_url = "http://www.buzzfeed.com/chrisreinacher/drunk-or-a-kid#.bsQKe9Qm1";
+                article_url = "http://www.buzzfeed.com/agh/words-that-are-now-officially-interchangeable-according-to-w#.ipWla1reV";
+                video_url = "http://www.buzzfeed.com/chrisreinacher/drunk-or-a-kid#.bsQKe9Qm1";
+                quiz_url = "http://www.buzzfeed.com/iramadison/which-gay-porn-star-is-your-soulmate#.ger4yzeWz";
+                list_url = "http://www.buzzfeed.com/floperry/my-one-true-love-is-sir-fluffikins#.hkye4KWBK";
 
                 webView = (WebView) findViewById(R.id.webView1);
                 webView.getSettings().setJavaScriptEnabled(true);
-                webView.loadUrl(article_url);
+                String pref = PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getString("pref", null);
+                Log.d("activity", pref);
+                if (pref.equals("article")) {
+                    webView.loadUrl(article_url);
+                    Log.d("ARTICLE", pref);
+                }
+                else if (pref.equals("video")) {
+                    Log.d("VIDEO", pref);
+                    Log.d("URL", video_url);
+                    webView.loadUrl(video_url);
+                }
+                else if (pref.equals("list")) {
+                    Log.d("LIST", pref);
+                    webView.loadUrl(list_url);
 
+                }
+                else if (pref.equals("quiz")) {
+                    Log.d("QUIZ", pref);
+                    webView.loadUrl(quiz_url);
+                }
+                else {
+                    webView.loadUrl(article_url);
+                    Log.d("ELSE", pref);
+                }
+
+                //webView.loadUrl(article_url);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
