@@ -7,21 +7,31 @@
     tools:context=".AlarmScreen"
     android:orientation="vertical">
 
-    <TextView android:text="GET UP!!!" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:layout_gravity="center"
-        android:textSize="70dp"/>
+    <TextView android:text="GET UP!!!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:textSize="60dp"/>
 
     <TextView android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:textSize = "70dp"
+        android:layout_marginTop="10dp"
+        android:textSize = "30dp"
+        android:layout_marginBottom="30dp"
+        android:text="00:00 PM"
         android:id="@+id/timeDisplay"
         />
 
     <ImageButton android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/buzz"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/buzzarrow"
+        android:background="@null"
         android:id="@+id/buzzButton"
         />
 
