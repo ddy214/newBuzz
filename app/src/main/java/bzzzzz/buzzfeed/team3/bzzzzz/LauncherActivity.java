@@ -26,5 +26,10 @@ public class LauncherActivity extends Activity {
     }
 
 
+    @Override
+    protected void onStop() {
+        super.onPause();
+        finish();
+    }
 
 }

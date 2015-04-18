@@ -20,17 +20,19 @@ import java.util.List;
 public class PickPrefActivity extends Activity {
     public String pref;
     static public ArrayList<CheckBox> listBox = new ArrayList<CheckBox>();
-    static public List<String> listStrings = new ArrayList<String> (){
-        {add( new String("article"));
-         add( new String("video"));
-         add( new String("list"));
-         add( new String("quiz"));}
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick_pref);
+
+
+        final List<String> listStrings = new ArrayList<String> (){
+            {add( new String("article"));
+                add( new String("video"));
+                add( new String("list"));
+                add( new String("quiz"));}
+        };
 
 //        Button submit = (Button) findViewById(R.id.Done);
 //        submit.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +58,9 @@ public class PickPrefActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     ((CheckBox) v).setChecked(true);
+
                     pref = listStrings.get(listBox.indexOf(check));
+
                     Log.d("activity", pref);
                     for(CheckBox i: listBox){
                         if(i != (CheckBox) v){
@@ -91,57 +95,14 @@ public class PickPrefActivity extends Activity {
         }
 
     }
+
+    @Override
+    protected void onStop() {
+        super.onPause();
+        finish();
+    }
+
 }
-
-
-//    }
-//
-//    public void OnCheckBoxClicked(View view){
-//
-//        boolean checked = ((CheckBox) view).isChecked();
-//        switch (view.getId()){
-//            case R.id.checkArticle:
-//                if(checked){
-//                    video.setChecked(false);
-//                    list.setChecked(false);
-//                    quiz.setChecked(false);
-//                    article.setChecked(true);
-//                    pref = article.getText().toString();
-//                }
-//
-//            case R.id.checkList :
-//                if(checked){
-//                    video.setChecked(false);
-//                    article.setChecked(false);
-//                    quiz.setChecked(false);
-//                    list.setChecked(true);
-//                    pref = list.getText().toString();
-//                }
-//
-//
-//            case R.id.checkQuiz:
-//                if(checked){
-//                    video.setChecked(false);
-//                    list.setChecked(false);
-//                    article.setChecked(false);
-//                    quiz.setChecked(true);
-//                    pref = quiz.getText().toString();
-//                }
-//
-//
-//            case R.id.checkVideo:
-//                if(checked){
-//                    article.setChecked(false);
-//                    list.setChecked(false);
-//                    quiz.setChecked(false);
-//                    video.setChecked(true);
-//                    pref = video.getText().toString();
-//                }
-//
-//
-//        }
-//
-//    }
 
 
 
