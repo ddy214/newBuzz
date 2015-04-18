@@ -6,6 +6,10 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -18,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -26,6 +31,10 @@ import java.text.SimpleDateFormat;
 
 public class AlarmScreen extends Activity {
     Ringtone ringtone;
+
+    //
+    final AnimationDrawable drawable = new AnimationDrawable();
+    LinearLayout layout;
 
     @Override
     public void onStart(){
@@ -54,6 +63,14 @@ public class AlarmScreen extends Activity {
 
         ImageButton buzzButton = (ImageButton) findViewById(R.id.buzzButton);
         TextView time = (TextView) findViewById(R.id.timeDisplay);
+        TextView wakeup = (TextView) findViewById(R.id.tv_getup);
+
+        //setfont
+        Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/ProximaNova-Semibold.otf");
+        time.setTypeface(tf);
+        wakeup.setTypeface(tf);
+
+
         DateFormat formatter = new SimpleDateFormat("hh:mm a");
         time.setText(formatter.format(System.currentTimeMillis()));
         Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
@@ -63,6 +80,20 @@ public class AlarmScreen extends Activity {
         }
         ringtone = RingtoneManager.getRingtone(getApplicationContext(), alarmUri);
         ringtone.play();
+
+
+        //set frames
+        drawable.addFrame(new ColorDrawable(Color.RED), 100);
+        drawable.addFrame(new ColorDrawable(Color.BLUE), 100);
+        drawable.addFrame(new ColorDrawable(Color.YELLOW), 100);
+        drawable.addFrame(new ColorDrawable(Color.CYAN), 100);
+        drawable.addFrame(new ColorDrawable(Color.GREEN), 100);
+        drawable.setOneShot(false);
+
+        layout  = (LinearLayout) findViewById(R.id.alarmscreenbg);
+        layout.setBackgroundDrawable(drawable);
+        drawable.start();
+
         buzzButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
