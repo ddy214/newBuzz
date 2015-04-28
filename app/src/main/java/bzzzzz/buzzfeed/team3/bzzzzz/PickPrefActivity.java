@@ -21,6 +21,7 @@ public class PickPrefActivity extends Activity {
     public String pref;
     public ArrayList<CheckBox> listBox = new ArrayList<CheckBox>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,13 +97,12 @@ public class PickPrefActivity extends Activity {
 
     }
 
+
     @Override
     protected void onStop() {
-        super.onPause();
+        super.onStop();
         finish();
     }
-
 }
-
 
 

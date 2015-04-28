@@ -67,6 +67,7 @@
         android:text="Article"/>
 
     </LinearLayout>
+
     <!--&lt;!&ndash;<Button-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->

@@ -7,4 +7,6 @@
     <string name="title_activity_alarm_screen">AlarmScreen</string>
     <string name="title_activity_launcher">LauncherActivity</string>
     <string name="title_activity_pick_pref">PickPrefActivity</string>
+    <string name="title_activity_contact_chooser">ContactChooserActivity</string>
+    <string name="title_activity_ringtone_chooser">RingtoneChooserActivity</string>
 </resources>

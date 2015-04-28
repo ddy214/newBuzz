@@ -11,15 +11,15 @@ import android.view.MenuItem;
 
 public class LauncherActivity extends Activity {
     static public String PREFERENCE = "pref";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String tempPref = PreferenceManager.getDefaultSharedPreferences(this).getString(PREFERENCE, null);
-        if(tempPref == null){
+        if (tempPref == null) {
             Intent intent = new Intent(LauncherActivity.this, PickPrefActivity.class);
             startActivity(intent);
-        }
-        else{
+        } else {
             Intent intent = new Intent(LauncherActivity.this, AlarmClockActivity.class);
             startActivity(intent);
         }
@@ -31,5 +31,4 @@ public class LauncherActivity extends Activity {
         super.onPause();
         finish();
     }
-
 }

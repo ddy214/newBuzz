@@ -16,9 +16,7 @@
         </activity>
         <activity
             android:name=".AlarmClockActivity"
-            android:launchMode= "singleInstance"
             android:label="@string/title_activity_alarm_clock" >
-
         </activity>
         <activity
             android:name=".AlarmScreen"
@@ -43,6 +41,10 @@
         <activity
             android:name=".PickPrefActivity"
             android:label="@string/title_activity_pick_pref" >
+        </activity>
+        <activity
+            android:name=".ContactChooserActivity"
+            android:label="@string/title_activity_contact_chooser" >
         </activity>
     </application>
 

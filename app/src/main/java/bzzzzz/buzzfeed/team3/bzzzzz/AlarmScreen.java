@@ -40,18 +40,13 @@ public class AlarmScreen extends Activity {
     public void onStart(){
         super.onStart();
 
-        if (getIntent() != null) {
-            Log.d("activity", ""+getIntent().getBooleanExtra("key", false));
-            if(getIntent().getBooleanExtra("key", false)) {
-
-            }
-        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_screen);
+        Intent i = getIntent();
 
         //custom font
         SpannableString s = new SpannableString(" BzZzZz");
@@ -73,11 +68,12 @@ public class AlarmScreen extends Activity {
 
         DateFormat formatter = new SimpleDateFormat("hh:mm a");
         time.setText(formatter.format(System.currentTimeMillis()));
-        Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-        if (alarmUri == null){
-            alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-        }
+//        Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+//        if (alarmUri == null){
+//            alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+//
+//        }
+        Uri alarmUri = Uri.parse(i.getExtras().getString("ringtone"));
         ringtone = RingtoneManager.getRingtone(getApplicationContext(), alarmUri);
         ringtone.play();
 

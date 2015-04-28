@@ -1,6 +1,7 @@
 package bzzzzz.buzzfeed.team3.bzzzzz;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -57,6 +58,18 @@ public class MainActivity extends Activity {
 
         // call AsyncTask to perform network operation on separate thread
         new HttpAsyncTask().execute(url);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+            setContentView(R.layout.activity_main);
+        }
+        else{
+            setContentView(R.layout.activity_main);
+        }
     }
 
     public static String GET(String url){
@@ -126,10 +139,12 @@ public class MainActivity extends Activity {
                 uri = buzz.getString("uri");
 
                 //article_url = "http://www.buzzfeed.com/" + user + "/" + uri;
-                article_url = "http://www.buzzfeed.com/agh/words-that-are-now-officially-interchangeable-according-to-w#.ipWla1reV";
-                video_url = "http://www.buzzfeed.com/chrisreinacher/drunk-or-a-kid#.bsQKe9Qm1";
-                quiz_url = "http://www.buzzfeed.com/iramadison/which-gay-porn-star-is-your-soulmate#.ger4yzeWz";
-                list_url = "http://www.buzzfeed.com/floperry/my-one-true-love-is-sir-fluffikins#.hkye4KWBK";
+                article_url = "http://www.buzzfeed.com/alisoncaporimo/the-world-wants-to-love-on-you#.dgM61Nvq2";
+                //video_url = "http://www.buzzfeed.com/chrisreinacher/drunk-or-a-kid#.bsQKe9Qm1";
+                video_url = "http://www.buzzfeed.com/mikerose/women-try-a-celebrity-body-slimming-app#.ebK7eAj0x";
+                //quiz_url = "http://www.buzzfeed.com/iramadison/which-gay-porn-star-is-your-soulmate#.ger4yzeWz";
+                quiz_url = "http://www.buzzfeed.com/annakopsky/butts-butts-butts#.apQWrxYd1";
+                list_url = "http://www.buzzfeed.com/buzz";
 
                 webView = (WebView) findViewById(R.id.webView1);
                 webView.getSettings().setJavaScriptEnabled(true);
@@ -142,6 +157,7 @@ public class MainActivity extends Activity {
                 else if (pref.equals("video")) {
                     Log.d("VIDEO", pref);
                     Log.d("URL", video_url);
+                    //webView.loadUrl(video_url);
                     webView.loadUrl(video_url);
                 }
                 else if (pref.equals("list")) {
